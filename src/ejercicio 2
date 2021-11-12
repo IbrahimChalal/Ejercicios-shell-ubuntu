@@ -1,0 +1,6 @@
+#!/bin/bash
+whereis echo
+echo "Hola mundo"
+
+
+
