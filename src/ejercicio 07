@@ -1,1 +1,31 @@
 
+#!/bin/bash
+
+function ayuda() {
+
+cat << descripcion_ayuda
+SYNOPSIS
+        $0 NOMBRE_USUARIO
+Descripcion
+        devuelve:
+Si si NOMBRE_USUARIO coincide con algun usuario conectado al sistemao o no si >
+
+Codigos de retorno
+        1 Si el numero de parametros es distinto de 1
+descripcion_ayuda
+}
+
+if [ $# -ne 1 ];
+then 
+        echo "el numero de parametros debe ser al menos 1"
+        ayuda
+        exit 1
+fi
+esta_conectado=`who | grep $1`
+
+if [ -z "esta_conectado" ]
+then
+                echo "No"
+else 
+        echo "Si"
+fi
