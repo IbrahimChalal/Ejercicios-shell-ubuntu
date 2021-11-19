@@ -1,1 +1,51 @@
+nano conectados-al-sistema
+###################################333
+#!/bin/bash
+function ayuda() {
 
+cat << Descripcion_ayuda
+SYNOPSIS
+        $0 NOMBRE_1 [NOMBRE_2] ... [NOMBRE_N]
+
+Descripcion
+        enseña "hola NOMBRE_1, NOMBRE_2, ... NOMBRE_N1" EN PANTALLA
+
+Codigo de retono
+        1 Si el numero de parametros es menor a 1
+        2 Si el usuario no esta conectado
+Descripcion_ayuda
+
+}
+
+if [ $# -le 0 ];
+then
+        echo "Hay que introducir al menos un parametro"
+        ayuda
+        exit 1
+fi
+Mensaje="hola"
+Primero=1
+hile [ -n "$1" ];
+do
+        esta_conectado= `who | grep $1`
+        if [ -z "$Esta_conectado" ];
+then
+        echo "El usuario $1 no esta conectado"
+        ayuda
+        exit 2
+fi
+if [ $Primero -eq 1 ];
+then
+        Mensaje="$Mensaje $1"
+        Primero=0
+else
+        Mensaje="$Mensaje, $1"
+fi
+
+shift
+done
+
+echo ${Mensaje}"!"
+##################################3
+chmod u+x conectados-al-sistema
+./conectados-al-sistema g
