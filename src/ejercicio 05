@@ -1,1 +1,47 @@
+nano error-mostar-ayuda
+##########################################
+#!/bin/bash
+function ayuda() {
 
+cat << Descripcion_ayuda
+SYNOPSIS
+        $0 NOMBRE_1 [NOMBRE_2] ... [NOMBRE_N]
+
+Descripcion
+        enseña "hola NOMBRE_1, NOMBRE_2, ... NOMBRE_N1" EN PANTALLA
+
+Codigo de retono
+        1 Si el numero de parametros es menor a 1
+Descripcion_ayuda
+
+}
+
+if test $# -le 0 ;
+then
+        echo " hay que introducir al menos un parametro"
+        ayuda
+        exit 1
+
+fi
+
+Mensaje="hola"
+Primero=1
+
+while [ -n "$1" ]; do
+        if [ $Primero -eq 1 ];
+then
+        Mensaje="$Mensaje $1"
+        Primero=0
+else
+        Mensaje="$Mensaje $1"
+        
+        
+fi
+shift
+done
+echo $Mensaje "!"
+exit 0
+
+######################################333
+chmod u+x error-mostrar-ayuda
+./error-mostrar-ayuda luis
