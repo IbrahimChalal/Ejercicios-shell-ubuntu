@@ -1,4 +1,5 @@
-
+nano usuarioconectado 
+######################
 #!/bin/bash
 
 function ayuda() {
@@ -29,3 +30,6 @@ then
 else 
         echo "Si"
 fi
+##############################
+chmod u+x usuarioconectado
+./usuarioconectado h
